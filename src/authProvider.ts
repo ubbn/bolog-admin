@@ -13,9 +13,15 @@ export const authProvider: AuthProvider = {
     localStorage.removeItem("username");
     return Promise.resolve();
   },
-  // Called when the user is logged in
+  // Runs when user navigates to new location to check for permissions or rules
+  getPermissions: () => {
+    return Promise.resolve();
+  },
+  // Runs when user navigates to new location to check for auth
   checkAuth: () => {
-    throw new Error("Function not implemented.");
+    return localStorage.getItem("username")
+      ? Promise.resolve()
+      : Promise.reject();
   },
   // Runs when API returns an error
   checkError: ({ status }: { status: number }) => {

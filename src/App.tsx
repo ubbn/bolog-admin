@@ -9,9 +9,15 @@ import PostEdit from "./pages/posts/post-edit";
 import PostCreate from "./pages/posts/post-create";
 import { Article, PersonPin } from "@mui/icons-material";
 import { HomePage } from "./pages/homepage";
+import { authProvider } from "./authProvider";
 
 export const App = () => (
-  <Admin layout={Layout} dataProvider={dataProvider} dashboard={HomePage}>
+  <Admin
+    layout={Layout}
+    dataProvider={dataProvider}
+    dashboard={HomePage}
+    authProvider={authProvider}
+  >
     <Resource
       name="posts"
       list={PostList}
