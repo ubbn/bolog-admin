@@ -1,12 +1,22 @@
-import { ReferenceField, Show, SimpleShowLayout, TextField } from "react-admin";
+import {
+  BooleanField,
+  ReferenceField,
+  Show,
+  SimpleShowLayout,
+  TextField,
+} from "react-admin";
+import OgnooField from "../../common/OgnooField";
 
 const PostShow = () => (
   <Show>
     <SimpleShowLayout>
-      <ReferenceField source="userId" reference="users" />
-      <TextField source="id" />
+      <ReferenceField source="companyId" reference="companies" />
       <TextField source="title" />
-      <TextField source="body" />
+      <BooleanField source="visible" label="Published?" />
+      <TextField source="content" />
+      <OgnooField source="publishedAt" label="Published" />
+      <OgnooField source="createdAt" label="Created" />
+      <OgnooField source="updatedAt" label="Updated" />
     </SimpleShowLayout>
   </Show>
 );

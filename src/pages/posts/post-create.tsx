@@ -1,11 +1,24 @@
-import { Create, ReferenceInput, SimpleForm, TextInput } from "react-admin";
+import {
+  BooleanInput,
+  Create,
+  DateTimeInput,
+  ReferenceInput,
+  required,
+  SelectInput,
+  SimpleForm,
+  TextInput,
+} from "react-admin";
 
 const PostCreate = () => (
   <Create>
     <SimpleForm>
-      <ReferenceInput source="userId" reference="users" />
-      <TextInput source="title" />
-      <TextInput source="body" multiline rows={5} />
+      <ReferenceInput source="companyId" reference="companies">
+        <SelectInput validate={required()} />
+      </ReferenceInput>
+      <TextInput source="title" validate={required()} />
+      <BooleanInput source="visible" />
+      <TextInput source="content" multiline rows={10} validate={required()} />
+      <DateTimeInput source="publishedAt" />
     </SimpleForm>
   </Create>
 );

@@ -8,7 +8,9 @@ import {
   EditButton,
   TextInput,
   ReferenceInput,
+  BooleanField,
 } from "react-admin";
+import OgnooField from "../../common/OgnooField";
 
 const PostPanel = () => {
   const record = useRecordContext();
@@ -37,13 +39,16 @@ const PostList = () => {
         }}
         expand={<PostPanel />}
       >
-        <TextField source="id" />
-        <TextField source="title" label="Post Title" />
+        <TextField source="title" label="Title" />
         <FunctionField
           label="Excerpt"
-          render={(record) => record.body.substring(0, 50) + "..."}
+          render={(record) => record.content?.substring(0, 30) + "..."}
         />
-        <ReferenceField source="userId" reference="users" />
+        <BooleanField source="visible" label="Published" />
+        <OgnooField source="createdAt" label="Created" />
+        <OgnooField source="updatedAt" label="Updated" />
+        <OgnooField source="publishedAt" label="Published" />
+        <ReferenceField source="companyId" reference="companies" />
         <EditButton label="Edit" />
       </Datagrid>
     </List>
