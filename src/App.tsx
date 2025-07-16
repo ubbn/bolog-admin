@@ -1,5 +1,5 @@
-import { Admin, Resource } from "react-admin";
-import { Layout } from "./Layout";
+import { Admin, CustomRoutes, Resource } from "react-admin";
+import { Layout } from "./common/Layout";
 import { dataProvider } from "./dataProvider";
 import PostList from "./pages/posts/post-list";
 import PostShow from "./pages/posts/post-show";
@@ -16,6 +16,8 @@ import OwnerCreate from "./pages/owners/owner-create";
 import OwnerEdit from "./pages/owners/owner-edit";
 import OwnerList from "./pages/owners/owner-list";
 import OwnerShow from "./pages/owners/owner-show";
+import UserProfile from "./common/UserProfile";
+import { Route } from "react-router-dom";
 
 export const App = () => (
   <Admin
@@ -48,5 +50,8 @@ export const App = () => (
       create={PostCreate}
       icon={RssFeed}
     />
+    <CustomRoutes>
+      <Route path="/profile" element={<UserProfile />} />
+    </CustomRoutes>
   </Admin>
 );
