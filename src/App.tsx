@@ -16,8 +16,9 @@ import OwnerCreate from "./pages/owners/owner-create";
 import OwnerEdit from "./pages/owners/owner-edit";
 import OwnerList from "./pages/owners/owner-list";
 import OwnerShow from "./pages/owners/owner-show";
-import UserProfile from "./common/UserProfile";
 import { Route } from "react-router-dom";
+import ProfileEdit from "./pages/profile/profile-edit";
+import ProfileShow from "./pages/profile/profile-show";
 
 export const App = () => (
   <Admin
@@ -51,7 +52,8 @@ export const App = () => (
       icon={RssFeed}
     />
     <CustomRoutes>
-      <Route path="/profile" element={<UserProfile />} />
+      <Route path="/profile" element={<ProfileShow />} />
+      <Route path="/profile/me" element={<ProfileEdit />} />
     </CustomRoutes>
   </Admin>
 );

@@ -1,12 +1,7 @@
 import { Create, required, SimpleForm, TextInput } from "react-admin";
 
 const CompanyCreate = () => (
-  <Create
-    transform={(data) => ({
-      ...data,
-      ownerId: "6",
-    })}
-  >
+  <Create>
     <SimpleForm>
       <TextInput source="name" validate={required()} />
       <TextInput source="email" validate={required()} />

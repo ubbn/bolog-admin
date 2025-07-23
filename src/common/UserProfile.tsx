@@ -13,6 +13,7 @@ const UserProfile = () => {
         <Typography variant="h5">User Profile</Typography>
         <Typography variant="body1">Name: {identity?.fullName}</Typography>
         <Typography variant="body1">Email: {identity?.email}</Typography>
+        <Typography variant="body1">Role: {identity?.roles}</Typography>
       </CardContent>
     </Card>
   );
